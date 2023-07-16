@@ -1,0 +1,90 @@
+<head>
+    <title>Álbumes de Spotify</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        .card {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 25px;
+            left:25px;
+            display: none;
+            color: #1DB954;
+            font-size: 30px;
+            padding: 5px;
+            border-radius: 50%;
+        }
+
+        .card:hover .play-button {
+            display: block;
+        }
+
+        .card-img-overlay {
+            padding: 0;
+        }
+
+        .card-footer {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-top: 10px;
+        padding-top: 10px;
+        border-top: 1px solid #dee2e6;
+    }
+
+    .delete-icon {
+        color: #dc3545;
+        margin-left: 10px;
+    }
+    .edit-icon {
+        color: #434ee9;
+        margin-left: 10px;
+    }
+    
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container p-4">
+        <figure class="text-center">
+            <blockquote class="blockquote">
+              <p class="h2">Álbumes</p>
+            </blockquote>
+        </figure>
+        <button class="btn btn-primary" style="margin-bottom: 0.15cm;" [routerLink]="['/album/create']">
+            Crear Nuevo
+        </button>
+        <div class="row row-cols-1 row-cols-md-4">
+
+            <!-- Card  -->
+            <div *ngFor="let album of albumes[0]" class="col mb-4">
+                <div class="card">
+                    <img class="card-img-top" [src]="album.urlPortada" alt="Álbum 1">
+                    <div>
+                        <a href="{{album.urlAlbum}}" target="_blank" class="play-button">
+                            <i class="fas fa-play"></i>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{album.nombre}}</h5>
+                        <p class="card-text">{{album.idArtista.nombre}} • {{album.fechaLanzamiento | date:'yyyy'}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a [routerLink]="['/album']" (click)="deleteAlbum(album._id)" class="delete-icon"><i class="fas fa-trash"></i></a>
+                        <a [routerLink]="['/album/update',album._id]" class="edit-icon"><i class="fas fa-edit"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Agrega más cards de álbumes aquí -->
+
+        </div>
+    </div>
+</body>

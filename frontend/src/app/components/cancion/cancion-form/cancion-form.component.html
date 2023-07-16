@@ -1,0 +1,72 @@
+<div class="container p-4">
+    <figure class="text-center">
+      <blockquote class="blockquote">
+        <p class="h2">Crear/Editar Canción</p>
+      </blockquote>
+    </figure>
+  
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card card-body">
+          <form (submit)="edit ? updateCancion() : submitCancion()">
+            <div class="row">
+              <div class="col">
+                <div class="form-group mb-3">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input type="text" id="nombre" name="nombre" [(ngModel)]="cancion.nombre" class="form-control" placeholder="" autofocus>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group mb-3">
+                  <label for="duracion" class="form-label">Duración</label>
+                  <input type="text" id="duracion" name="duracion" [(ngModel)]="cancion.duracion" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group mb-3">
+                  <label for="idArtista" class="form-label">Artista</label>
+                  <select name="idArtista" id="idArtista" [(ngModel)]="cancion.idArtista" class="form-select" aria-label="Default select example">
+                    <option value="" disabled selected>Seleccionar artista</option>
+                    <option *ngFor="let autores of autor[0]" [value]="autores._id">{{autores.nombre}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group mb-3">
+                  <label for="urlPortada" class="form-label">URL Portada</label>
+                  <input type="text" id="urlPortada" name="urlPortada" [(ngModel)]="cancion.urlPortada" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group mb-3">
+                  <label for="urlYouTube" class="form-label">URL YouTube</label>
+                  <input type="text" id="urlYouTube" name="urlYouTube" [(ngModel)]="cancion.urlYouTube" class="form-control" placeholder="">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group mb-3">
+                  <label for="fechaLanzamiento" class="form-label">Fecha de Lanzamiento</label>
+                  <!-- <input type="text" id="fechaLanzamiento" name="fechaLanzamiento" [(ngModel)]="cancion.fechaLanzamiento" class="form-control" placeholder=""> -->
+                  <input type="date" id="fechaNacimiento" name="fechaNacimiento" [(ngModel)]="cancion.fechaLanzamiento" class="form-control" placeholder=" ">
+
+                </div>
+              </div>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button class="btn btn-secondary btn-block">
+                Guardar
+              </button>
+              <button type="button" class="btn btn-dark" [routerLink]="['/cancion']">
+                Cancelar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

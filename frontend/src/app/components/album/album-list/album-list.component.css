@@ -1,0 +1,23 @@
+.card {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.card:hover .play-button {
+    display: block;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    color: white;
+    font-size: 50px;
+}
+.card-img-top {
+    object-fit: cover;
+    height: 200px;
+    width: 100%;
+}

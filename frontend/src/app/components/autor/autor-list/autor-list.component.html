@@ -1,0 +1,80 @@
+<div class="container p-4">
+
+<figure class="text-center">
+    <blockquote class="blockquote">
+      <p class="h2">Artistas</p>
+    </blockquote>
+  </figure>
+<button class="btn btn-primary" style="margin-bottom: 0.15cm;" [routerLink]="['/autor/create']">
+    Crear Nuevo
+</button>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let autor of autores[0]" class="col">
+      <div class="card h-100">
+        <div class="card" style="margin-left: 0.5cm; margin-right: 0.5cm; margin-top: 0.2cm;">
+        <div class="col" style="margin-left: 0.1cm; margin-right: 0.1cm; margin-top: 0.1cm; margin-bottom: 0.1cm;">
+            <img [src]="autor.urlFoto" class="bd-placeholder-img card-img-top card-img-bottom" width="100%" height="165">
+      </div>
+      </div>
+        <div class="card-body">
+          <h5 class="card-title text-center"><b>{{autor.nombre}}</b></h5>
+          <ul style="list-style: none; margin-bottom: 0.1cm;">
+            <li>
+                <b>ID: </b>{{autor._id}}
+            </li>
+            <li>
+                <b>Nacionalidad: </b>{{autor.nacionalidad}}
+            </li>
+            <li>
+                <b>Fecha de Nacimiento: </b>{{autor.fechaNacimiento | date:'yyyy-MM-dd'}}
+            </li>                    
+        </ul>
+        <div class="text-center">
+            <a href="{{autor.urlYouTube}}"><i class="bi bi-youtube" style="font-size:40px;color: red;"></i></a>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-danger" style="margin-right: 0.10cm; width: 100px;" (click)="deleteAutor(autor._id)"> 
+                Eliminar
+            </button>
+            <button class="btn btn-secondary" style="width: 100px;" [routerLink]="['/autor/update',autor._id]">
+                Editar
+            </button>
+        </div>
+        </div>
+      </div>
+    </div>
+
+<!-- <div *ngFor="let autor of autores[0]" class="card card-body mb-2">
+    <div class="row">
+        <div class="col-md-8">
+            <ul style="list-style: none;">
+                <li>
+                    <b>ID: </b>{{autor._id}}
+                </li>
+                <li>
+                    <b>Nombre: </b>{{autor.nombre}}
+                </li>
+                <li>
+                    <b>Nacionalidad: </b>{{autor.nacionalidad}}
+                </li>
+                <li>
+                    <b>Fecha de Nacimiento: </b>{{autor.fechaNacimiento | date:'yyyy-MM-dd'}}
+                </li>
+                <li>
+                    <a href="{{autor.urlYouTube}}"><i class="bi bi-youtube"></i></a>                    
+                </li>
+            </ul>
+            <button class="btn btn-danger" style="margin-right: 0.10cm;" (click)="deleteAutor(autor._id)"> 
+                Eliminar
+            </button>
+            <button class="btn btn-secondary"  [routerLink]="['/autor/update',autor._id]">
+                Editar
+            </button>
+        </div>
+        <div class="col-md-4" >
+            <img [src]="autor.urlFoto" class="card-img img-thumbnail" >
+        </div>
+    </div>  
+</div>
+</div> -->

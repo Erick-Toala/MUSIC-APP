@@ -1,0 +1,61 @@
+<div class="container p-4">
+    <figure class="text-center">
+      <blockquote class="blockquote">
+        <p class="h2">Crear/Editar Álbum</p>
+      </blockquote>
+    </figure>
+  
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card card-body">
+          <form (submit)="edit ? updateAlbum() : submitAlbum()">
+            <div class="row">
+              <div class="col">
+                <div class="form-group mb-3">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input type="text" name="nombre" [(ngModel)]="album.nombre" class="form-control" placeholder="" autofocus>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="idArtista" class="form-label">Artista</label>
+                    <select name="idArtista" id="idArtista" [(ngModel)]="album.idArtista" class="form-select" aria-label="Default select example">
+                      <option value="" disabled selected>Seleccionar artista</option>
+                      <option *ngFor="let autores of autor[0]" [value]="autores._id">{{autores.nombre}}</option>
+                    </select>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="cancionPopular" class="form-label">Canción Popular</label>
+                    <select name="cancionPopular" [(ngModel)]="album.cancionPopular" id="cancionPopular" class="form-select" aria-label="Default select example">
+                      <option value="" disabled selected>Seleccionar canción</option>
+                      <option *ngFor="let cancion of canciones[0]" [value]="cancion._id">{{cancion.nombre}}</option>
+                    </select>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group mb-3">
+                  <label for="urlPortada" class="form-label">URL Portada</label>
+                  <input type="text" name="urlPortada" [(ngModel)]="album.urlPortada" class="form-control" placeholder="">
+                </div>
+                <div class="form-group mb-3">
+                  <label for="urlAlbum" class="form-label">URL Álbum</label>
+                  <input type="text" name="urlAlbum" [(ngModel)]="album.urlAlbum" class="form-control" placeholder="">
+                </div>
+                <div class="form-group mb-3">
+                  <label for="fechaLanzamiento" class="form-label">Fecha de Lanzamiento</label>
+                  <input type="date" id="fechaLanzamiento" name="fechaLanzamiento" [(ngModel)]="album.fechaLanzamiento" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button class="btn btn-secondary btn-block">
+                Guardar
+              </button>
+              <button type="button" class="btn btn-dark" [routerLink]="['/album']">
+                Cancelar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

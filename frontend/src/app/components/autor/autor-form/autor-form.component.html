@@ -1,0 +1,61 @@
+<div class="container p-4">
+    <figure class="text-center">
+      <blockquote class="blockquote">
+        <p class="h2">Crear/Editar Artista</p>
+      </blockquote>
+    </figure>
+  
+    <div class="row">
+      <div class="col-sm-6 offset-md-3">
+        <div class="card card-body">
+          <form (submit)="edit ? updateAutor() : submitAutor()">
+            <div class="row">
+              <div class="col">
+                <div class="form-group mb-3">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input type="text" id="nombre" name="nombre" [(ngModel)]="autor.nombre" class="form-control" placeholder="" autofocus>
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group mb-3">
+                  <label for="nacionalidad" class="form-label">Nacionalidad</label>
+                  <input type="text" id="nacionalidad" name="nacionalidad" [(ngModel)]="autor.nacionalidad" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group mb-3">
+                  <label for="fechaNacimiento" class="form-label">Fecha Nacimiento</label>
+                  <input type="date" id="fechaNacimiento" name="fechaNacimiento" [(ngModel)]="autor.fechaNacimiento" class="form-control" placeholder=" Nacimiento">
+                </div>
+              </div>
+              <div class="col">
+                <div class="form-group mb-3">
+                  <label for="urlFoto" class="form-label">URL Imagen</label>
+                  <input type="text" id="urlFoto" name="urlFoto" [(ngModel)]="autor.urlFoto" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="form-group mb-3">
+                  <label for="urlYouTube" class="form-label">URL YouTube</label>
+                  <input type="text" id="urlYouTube" name="urlYouTube" [(ngModel)]="autor.urlYouTube" class="form-control" placeholder="">
+                </div>
+              </div>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button class="btn btn-secondary btn-block">
+                Guardar
+              </button>
+              <button type="button" class="btn btn-dark" [routerLink]="['/autor']">
+                Cancelar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

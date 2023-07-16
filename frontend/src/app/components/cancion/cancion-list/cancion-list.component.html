@@ -1,0 +1,83 @@
+<div class="container p-4">
+
+<figure class="text-center">
+    <blockquote class="blockquote">
+      <p class="h2">Canciones</p>
+    </blockquote>
+</figure>
+<button class="btn btn-primary" style="margin-bottom: 0.15cm;" [routerLink]="['/cancion/create']">
+    Crear Nuevo
+</button>
+
+<div class="row">
+    <div *ngFor="let cancion of canciones[0]" class="col-md-6">
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0 custom-row">
+          <div class="col-md-4">
+            <img [src]="cancion.urlPortada" class="card-img-top custom-img icono-youtube" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><b>{{cancion.nombre}}</b></h5>
+              <ul style="list-style: none;">
+                <li>
+                  <b>ID: </b>{{cancion._id}}
+                </li>
+                <li>
+                  <b>Duración: </b>{{cancion.duracion}}
+                </li>
+                <li>
+                  <b>Artista: </b>{{cancion.idArtista.nombre}}
+                </li>
+                <li>
+                  <b>Fecha de lanzamiento: </b>{{cancion.fechaLanzamiento | date:'yyyy-MM-dd'}}
+                </li>
+                <a href="{{cancion.urlYouTube}}"><i class="bi bi-youtube"></i></a>
+                <a [routerLink]="['/cancion']" (click)="deleteCancion(cancion._id)"><i class="bi bi-trash3-fill iconodelete" style="margin-left: 5.37cm;" ></i></a>
+                <a [routerLink]="['/cancion/update',cancion._id]"><i class="bi bi-pencil-fill iconoedit" style="margin-left: 0.20cm;" ></i></a>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- <button class="btn btn-danger" style="margin-top: 0.10cm;" > 
+            Eliminar
+        </button> -->
+        <!-- <button class="btn btn-secondary" style="margin-top: 0.10cm;" >
+            Editar
+        </button> -->
+      </div>
+    </div>
+  </div>
+
+</div>
+
+  
+  
+  <!-- <div class="row">
+    <div class="col-md-3 my-2" *ngFor="let cancion of canciones[0]">
+      <div class="card" style="width: 18rem;">
+        <img [src]="cancion.urlPortada" class="card-img-top custom-img" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{cancion.nombre}}</h5>
+          <ul style="list-style: none;">
+            <li>
+              <b>ID: </b>{{cancion._id}}
+            </li>
+            <li>
+              <b>Duración: </b>{{cancion.duracion}}
+            </li>
+            <li>
+              <b>Artista: </b>{{cancion.idArtista}}
+            </li>
+            <li>
+              <b>Fecha de lanzamiento: </b>{{cancion.fechaLanzamiento}}
+            </li>
+            <li>
+              <a href="{{cancion.urlYouTube}}" class="btn btn-primary">Escuchar</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+   -->

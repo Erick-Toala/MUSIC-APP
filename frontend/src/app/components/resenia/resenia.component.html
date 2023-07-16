@@ -1,0 +1,105 @@
+<div class="container p-4">
+    <figure class="text-center">
+        <blockquote class="blockquote">
+          <p class="h2">Reseñas</p>
+        </blockquote>
+    </figure>
+  
+    <!-- <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card card-body">
+          <form #loginForm="ngForm" (ngSubmit)="submitData(loginForm.value)">
+            <div class="form-group mb-3">
+                <input name="id" [(ngModel)]="id" placeholder="ID Reseña (Para Actualizar)" id="id" type="text" class="form-control" />
+              </div>
+              <div class="form-group mb-3">
+                
+                <select  name="idCancion" ngModel id="idCancion" type="text" class="form-select" aria-label="Default select example">
+                  <option value="" disabled selected>Seleccionar canción</option>
+                  <option *ngFor="let cancion of canciones[0]" [value]="cancion._id">{{cancion.nombre}}</option>
+                </select>
+              </div>
+                <div class="form-group mb-3">
+                  <textarea name="descripcion" ngModel placeholder="Descripción" id="descripcion" class="form-control" rows="5" cols="50"></textarea><br><br>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button class="btn btn-secondary btn-block">
+                        Guardar
+                    </button>
+                    <button type="button" class="btn btn-dark ">
+                        Cancelar
+                    </button>
+                </div>
+          </form>
+        </div>
+      </div>
+    </div> -->
+    <div class="row">
+      <div class="col-md-8 ">
+    <form class="mt-4" #loginForm="ngForm" (ngSubmit)="submitData(loginForm.value)">
+      <h4>Agregar reseña</h4>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group mb-2">
+            <label for="nombre" class="form-label">Nombre*</label>
+            <input type="text" name="nombre" ngModel id="nombre" class="form-control" placeholder="Nombre">
+          </div>
+          <!-- Otros campos de la primera columna -->
+        </div>
+        <div class="col-md-6">
+          <div class="form-group mb-2">
+            <label for="nombre" class="form-label">Canción (opcional)</label>
+            <select  name="idCancion" ngModel id="idCancion" type="text" class="form-select" aria-label="Default select example">
+              <option value="" disabled selected>Seleccionar canción</option>
+              <option *ngFor="let cancion of canciones[0]" [value]="cancion._id">{{cancion.nombre}}</option>
+            </select>
+            <!-- Otros campos de la segunda columna -->
+          </div>
+        </div>
+      </div>
+      <div class="form-group mb-2">
+        <label for="comentario" class="form-label">Reseña*</label>
+        <textarea name="descripcion" ngModel class="form-control" id="descripcion" rows="3" placeholder="Escribe tu reseña"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Publicar reseña</button>
+    </form>
+  </div>
+</div>
+
+    <hr>
+    <div class="mt-4">
+      <h4>Reseñas anteriores:</h4>
+      
+      <ul class="list-group" style="margin-bottom: 0.1cm;" *ngFor="let resenia of dataResenia.resenia">
+        <li class="list-group-item">
+          <h5>@{{ eliminarEspacios(resenia.nombre.toLowerCase()) }} dice:</h5>
+          <p>{{resenia.descripcion}}</p>
+          <small class="text-muted">{{resenia.fecha | date:'yyyy-MM-dd HH:mm'}}   {{resenia.idCancion}}</small>
+        </li>
+      </ul>
+    </div>      
+    
+    
+  
+    <!-- <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Descripción</th>
+          <th scope="col">Canción</th>
+          <th scope="col">Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let resenia of dataResenia.resenia">
+          <td>{{resenia._id}}</td>
+          <td>{{resenia.descripcion}}</td>
+          <td>{{resenia.idCancion}}</td>
+          <td>{{resenia.fecha}}</td>
+          <td>
+            <button type="button" class="btn btn-danger btn-sm" (click)="resenia._id && deleteResenia(resenia._id)">Eliminar</button>                
+          </td>
+        </tr>
+      </tbody>
+    </table> -->
+  </div>
